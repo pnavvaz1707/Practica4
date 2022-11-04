@@ -23,6 +23,7 @@ namespace Practica4
         {
             int opcion;
             ArrayList fichas = new ArrayList();
+            Ficha ficha;
             do
             {
                 opcion = menu();
@@ -32,28 +33,47 @@ namespace Practica4
                 switch (opcion)
                 {
                     case 1:
-                        fichas.Add(creaFichaLibro());
+                        ficha = creaFichaLibro();
+                        fichas.Add(ficha);
+
+                        Console.WriteLine("Los datos proporcionados son: ");
+
+                        ficha.imprimir();
                         break;
 
                     case 2:
-                        fichas.Add(creaFichaLibroVol());
+                        ficha = creaFichaLibroVol();
+                        fichas.Add(ficha);
+
+                        Console.WriteLine("Los datos proporcionados son: ");
+
+                        ficha.imprimir();
                         break;
 
                     case 3:
-                        fichas.Add(creaFichaRevista());
+                        ficha = creaFichaRevista();
+
+                        fichas.Add(ficha);
+
+                        Console.WriteLine("Los datos proporcionados son: ");
+
+                        ficha.imprimir();
                         break;
 
                     case 4:
-                        fichas.Add(creaFichaDVD());
+                        ficha = creaFichaDVD();
+                        fichas.Add(ficha);
+
+                        Console.WriteLine("Los datos proporcionados son: ");
+
+                        ficha.imprimir();
                         break;
 
                     case 5:
                         for (int i = 0; i < fichas.Count; i++)
                         {
-                            Console.WriteLine(fichas[i]);
+                            ((Ficha)fichas[i]).imprimir();
                         }
-                        Console.WriteLine("Pulse una tecla para continuar...");
-                        Console.ReadKey();
                         break;
                 }
             } while (opcion != 6);
@@ -64,11 +84,11 @@ namespace Practica4
             string referencia, titulo, autor, editorial;
             int numEjemplares;
 
-            referencia = Auxiliar.leerCadena("Introduce la referencia del libro");
-            titulo = Auxiliar.leerCadena("Introduce el título del libro");
-            numEjemplares = Auxiliar.solicitarEnteroEnUnRango(0, Int16.MaxValue, "Introduce el número de ejemplares");
-            autor = Auxiliar.leerCadena("Introduce el autor del libro");
-            editorial = Auxiliar.leerCadena("Introduce la editorial del libro");
+            referencia = Auxiliar.leerCadena("Introduce la referencia del libro: ");
+            titulo = Auxiliar.leerCadena("Introduce el título del libro: ");
+            numEjemplares = Auxiliar.solicitarEnteroEnUnRango(0, Int32.MaxValue, "Introduce el número de ejemplares: ");
+            autor = Auxiliar.leerCadena("Introduce el autor del libro: ");
+            editorial = Auxiliar.leerCadena("Introduce la editorial del libro: ");
 
             return new FichaLibro(referencia, titulo, numEjemplares, autor, editorial);
         }
@@ -77,12 +97,12 @@ namespace Practica4
             string referencia, titulo, autor, editorial;
             int numEjemplares, volumen;
 
-            referencia = Auxiliar.leerCadena("Introduce la referencia del libro");
-            titulo = Auxiliar.leerCadena("Introduce el título del libro");
-            numEjemplares = Auxiliar.solicitarEnteroEnUnRango(0, Int16.MaxValue, "Introduce el número de ejemplares");
-            autor = Auxiliar.leerCadena("Introduce el autor del libro");
-            editorial = Auxiliar.leerCadena("Introduce la editorial del libro");
-            volumen = Auxiliar.solicitarEnteroEnUnRango(0, Int16.MaxValue, "Introduce el volumen del libro");
+            referencia = Auxiliar.leerCadena("Introduce la referencia del libro: ");
+            titulo = Auxiliar.leerCadena("Introduce el título del libro: ");
+            numEjemplares = Auxiliar.solicitarEnteroEnUnRango(0, Int32.MaxValue, "Introduce el número de ejemplares: ");
+            autor = Auxiliar.leerCadena("Introduce el autor del libro: ");
+            editorial = Auxiliar.leerCadena("Introduce la editorial del libro: ");
+            volumen = Auxiliar.solicitarEnteroEnUnRango(0, Int32.MaxValue, "Introduce el volumen del libro: ");
 
             return new FichaLibroVol(referencia, titulo, numEjemplares, autor, editorial, volumen);
         }
@@ -91,77 +111,42 @@ namespace Practica4
             string referencia, titulo, fechaPublicacion;
             int numEjemplares, numRevista;
 
-            referencia = Auxiliar.leerCadena("Introduce la referencia de la revista");
-            titulo = Auxiliar.leerCadena("Introduce el título de la revista");
-            numEjemplares = Auxiliar.solicitarEnteroEnUnRango(0, Int16.MaxValue, "Introduce el número de ejemplares");
-            numRevista = Auxiliar.solicitarEnteroEnUnRango(0, Int16.MaxValue, "Introduce el número de la revista");
-            fechaPublicacion = Convert.ToString(Auxiliar.solicitarEnteroEnUnRango(DateTime.Now.Year - 100, DateTime.Now.Year, "Introduce la fecha de publicación de la revista"));
+            referencia = Auxiliar.leerCadena("Introduce la referencia de la revista: ");
+            titulo = Auxiliar.leerCadena("Introduce el título de la revista: ");
+            numEjemplares = Auxiliar.solicitarEnteroEnUnRango(0, Int32.MaxValue, "Introduce el número de ejemplares: ");
+            numRevista = Auxiliar.solicitarEnteroEnUnRango(0, Int32.MaxValue, "Introduce el número de la revista: ");
+            fechaPublicacion = Convert.ToString(Auxiliar.solicitarEnteroEnUnRango(DateTime.Now.Year - 100, DateTime.Now.Year, "Introduce la fecha de publicación de la revista: "));
 
             return new FichaRevista(referencia, titulo, numEjemplares, numRevista, fechaPublicacion);
         }
         private static FichaDVD creaFichaDVD()
         {
             string referencia, titulo, director, fechaProduccion;
-            int numEjemplares;
+            int numEjemplares, numProtagonistas;
 
-            referencia = Auxiliar.leerCadena("Introduce la referencia del DVD");
-            numEjemplares = Auxiliar.solicitarEnteroEnUnRango(0, Int16.MaxValue, "Introduce el número de ejemplares de DVD");
-            titulo = Auxiliar.leerCadena("Introduce el título del DVD");
-            director = Auxiliar.leerCadena("Introduce el director del DVD");
-            fechaProduccion = Convert.ToString(Auxiliar.solicitarEnteroEnUnRango(DateTime.Now.Year - 100, DateTime.Now.Year, "Introduce la fecha de producción del DVD"));
-            ArrayList protagonistas = crearProtagonistas();
+            referencia = Auxiliar.leerCadena("Introduce la referencia del DVD: ");
+            numEjemplares = Auxiliar.solicitarEnteroEnUnRango(0, Int32.MaxValue, "Introduce el número de ejemplares de DVD: ");
+            titulo = Auxiliar.leerCadena("Introduce el título del DVD: ");
+            director = Auxiliar.leerCadena("Introduce el director del DVD: ");
+            fechaProduccion = Convert.ToString(Auxiliar.solicitarEnteroEnUnRango(DateTime.Now.Year - 100, DateTime.Now.Year, "Introduce la fecha de producción del DVD: "));
+            numProtagonistas = Auxiliar.solicitarEnteroEnUnRango(0, 20, "Nº de actores: ");
+            ArrayList protagonistas = crearProtagonistas(numProtagonistas);
+
             return new FichaDVD(referencia, titulo, numEjemplares, director, fechaProduccion, protagonistas);
         }
 
 
-        private static ArrayList crearProtagonistas()
+        private static ArrayList crearProtagonistas(int numProtagonistas)
         {
             ArrayList protagonistas = new ArrayList();
-            bool sigue = true;
-            string respuesta;
-            do
-            {
-                Console.WriteLine("Introduce un actor protagonista");
-                protagonistas.Add(Console.ReadLine());
-                sigue = continuarBucle("¿Desea introducir otro actor?");
 
-            } while (sigue);
-            return protagonistas;
-        }
-
-        private static bool continuarBucle(string msg)
-        {
-            bool sigueBucle = null;
-            bool siguePreguntando = true;
-            string respuesta;
-            while (siguePreguntando)
+            for (int i = 1; i <= numProtagonistas; i++)
             {
-                try
-                {
-                    Console.WriteLine(msg);
-                    respuesta = Console.ReadLine().ToLower();
-                    if (respuesta.Equals("si") || respuesta.Equals("sí"))
-                    {
-                        siguePreguntando = false;
-                        sigueBucle = true;
-                    }
-                    else if (respuesta.Equals("no"))
-                    {
-                        siguePreguntando = false;
-                        sigueBucle = false;
-                    }
-                    else
-                    {
-                        throw new Exception("Debe introducir un si o un no");
-                    }
-                }
-                catch (Exception e)
-                {
-                    Colores.imprimirRojo(e.Message);
-                }
+                protagonistas.Add(Auxiliar.leerCadena("\t- Actor " + i + "º: "));
             }
-            return sigueBucle;
 
+
+            return protagonistas;
         }
 
         private static int menu()
@@ -170,7 +155,7 @@ namespace Practica4
             Colores.imprimirVerde("\n\t\t----- GESTIÓN BIBLIOTECA -----\n");
             Console.WriteLine("Elija el tipo de Ficha a crear");
             crearMenu();
-            return Auxiliar.solicitarEnteroEnUnRango(1, MENU_OPCIONES.Length, "Seleccione una opción");
+            return Auxiliar.solicitarEnteroEnUnRango(1, MENU_OPCIONES.Length, "Seleccione una opción\n");
         }
         private static void crearMenu()
         {

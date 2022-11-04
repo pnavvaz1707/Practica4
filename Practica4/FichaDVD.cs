@@ -26,7 +26,24 @@ namespace Practica4
 
         public override void imprimir()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Referencia: " + Referencia);
+            Console.WriteLine("Título....: " + Titulo);
+            Console.WriteLine("Director..: " + Director);
+            Console.WriteLine("Año.......: " + fechaProduccion);
+            Console.WriteLine("Actores...: ");
+            leerActores();
+            Console.WriteLine("Ejemplares: " + NumEjemplares);
+
+            Console.WriteLine("Pulse una tecla para continuar...");
+            Console.ReadKey();
+        }
+
+        private void leerActores()
+        {
+            for (int i = 0; i < protagonistas.Count; i++)
+            {
+                Console.WriteLine("\t- " + protagonistas[i]);
+            }
         }
     }
 }

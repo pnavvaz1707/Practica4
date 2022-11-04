@@ -17,7 +17,7 @@ namespace Practica4
             {
                 try
                 {
-                    Console.WriteLine(mensaje);
+                    Console.Write(mensaje);
                     respuesta = Console.ReadLine();
                     if (respuesta == "")
                     {
@@ -42,8 +42,8 @@ namespace Practica4
             {
                 try
                 {
-                    Console.WriteLine(msg);
-                    num = Convert.ToInt16(Console.ReadLine());
+                    Console.Write(msg);
+                    num = Convert.ToInt32(Console.ReadLine());
                     if (num < limiteInferior || num > limiteSuperior)
                     {
                         throw new Exception("El número debe estar comprendido en el siguiente rango [" + limiteInferior + "," + limiteSuperior + "]");

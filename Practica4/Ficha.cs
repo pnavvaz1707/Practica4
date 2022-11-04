@@ -23,6 +23,7 @@ namespace Practica4
             this.referencia = referencia + "/" + NumOrden;
             this.titulo = titulo;
             this.numEjemplares = numEjemplares;
+            numOrden++;
         }
 
         public abstract void imprimir();
