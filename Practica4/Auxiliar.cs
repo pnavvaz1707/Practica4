@@ -23,6 +23,7 @@ namespace Practica4
                     {
                         throw new Exception("La cadena no puede estar vacía");
                     }
+                    sigue = false;
                 }
                 catch (Exception e)
                 {
@@ -53,18 +54,16 @@ namespace Practica4
                 {
                     Colores.imprimirRojo("Debe introducir un número entero");
                 }
+                catch (OverflowException)
+                {
+                    Colores.imprimirRojo("El número introducido es demasiado alto");
+                }
                 catch (Exception e)
                 {
                     Colores.imprimirRojo(e.Message);
                 }
             }
             return num;
-        }
-        public ArrayList obtenerProtagonistas()
-        {
-            ArrayList protagonistas = new ArrayList();
-
-            return protagonistas;
         }
     }
 }
