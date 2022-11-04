@@ -10,13 +10,10 @@ namespace Practica4
     {
         private int volumen;
         public int Volumen { get { return volumen; } }
+
         public FichaLibroVol(string referencia, string titulo, int numEjemplares, string autor, string editorial, int volumen) : base(referencia, titulo, numEjemplares, autor, editorial)
         {
             this.volumen = volumen;
-        }
-        public override void imprimir()
-        {
-
-        }
+        }   
     }
 }

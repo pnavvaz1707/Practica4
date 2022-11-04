@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -58,6 +59,12 @@ namespace Practica4
                 }
             }
             return num;
+        }
+        public ArrayList obtenerProtagonistas()
+        {
+            ArrayList protagonistas = new ArrayList();
+
+            return protagonistas;
         }
     }
 }

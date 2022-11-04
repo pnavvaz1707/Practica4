@@ -24,7 +24,8 @@ namespace Practica4
 
             int opcion;
 
-            Colores.imprimirVerde("\n\t\t----- Juego de multiplicar -----\n");
+            Colores.imprimirVerde("\n\t\t----- GESTIÓN BIBLIOTECA -----\n");
+            Console.WriteLine("Elija el tipo de Ficha a crear");
 
             while (sigue)
             {
@@ -76,9 +77,9 @@ namespace Practica4
 
             referencia = Auxiliar.leerCadena("Introduce la referencia de la revista");
             titulo = Auxiliar.leerCadena("Introduce el título de la revista");
-            fechaPublicacion = Auxiliar.leerCadena("Introduce la fecha de publicación de la revista");
             numEjemplares = Auxiliar.solicitarEnteroEnUnRango(0, Int16.MaxValue, "Introduce el número de ejemplares");
             numRevista = Auxiliar.solicitarEnteroEnUnRango(0, Int16.MaxValue, "Introduce el número de la revista");
+            fechaPublicacion = Convert.ToString(Auxiliar.solicitarEnteroEnUnRango(DateTime.Now.Year - 100, DateTime.Now.Year, "Introduce la fecha de publicación de la revista"));
 
             return new FichaRevista(referencia, titulo, numEjemplares, numRevista, fechaPublicacion);
         }
@@ -86,7 +87,13 @@ namespace Practica4
         {
             string referencia, titulo, director, fechaProduccion;
             int numEjemplares;
-            ArrayList protagonistas;
+            referencia = Auxiliar.leerCadena("Introduce la referencia del DVD");
+            numEjemplares = Auxiliar.solicitarEnteroEnUnRango(0, Int16.MaxValue, "Introduce el número de ejemplares de DVD");
+            titulo = Auxiliar.leerCadena("Introduce el título del DVD");
+            director = Auxiliar.leerCadena("Introduce el director del DVD");
+            fechaProduccion = Convert.ToString(Auxiliar.solicitarEnteroEnUnRango(DateTime.Now.Year - 100, DateTime.Now.Year, "Introduce la fecha de producción del DVD"));
+
+            ArrayList protagonistas = Auxiliar.;
             return new FichaDVD(referencia, titulo, numEjemplares, director, fechaProduccion, protagonistas);
         }
 
