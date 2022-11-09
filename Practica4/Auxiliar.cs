@@ -27,7 +27,8 @@ namespace Practica4
                 }
                 catch (Exception e)
                 {
-                    Colores.imprimirRojo(e.Message);
+                    Console.SetCursorPosition(mensaje.Length, Console.CursorTop - 1);
+                    Colores.imprimirRojo("--> " + e.Message);
                 }
             }
             return respuesta;
@@ -52,15 +53,18 @@ namespace Practica4
                 }
                 catch (FormatException)
                 {
-                    Colores.imprimirRojo("Debe introducir un número entero");
+                    Console.SetCursorPosition(msg.Length, Console.CursorTop - 1);
+                    Colores.imprimirRojo("--> Debe introducir un número entero");
                 }
                 catch (OverflowException)
                 {
-                    Colores.imprimirRojo("El número introducido es demasiado alto");
+                    Console.SetCursorPosition(msg.Length, Console.CursorTop - 1);
+                    Colores.imprimirRojo("--> El número introducido es demasiado alto");
                 }
                 catch (Exception e)
                 {
-                    Colores.imprimirRojo(e.Message);
+                    Console.SetCursorPosition(msg.Length, Console.CursorTop - 1);
+                    Colores.imprimirRojo("--> " + e.Message);
                 }
             }
             return num;

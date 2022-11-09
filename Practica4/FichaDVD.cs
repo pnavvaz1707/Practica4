@@ -26,6 +26,8 @@ namespace Practica4
 
         public override void imprimir()
         {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+
             Console.WriteLine("Referencia: " + Referencia);
             Console.WriteLine("Título....: " + Titulo);
             Console.WriteLine("Director..: " + Director);
@@ -34,8 +36,7 @@ namespace Practica4
             leerActores();
             Console.WriteLine("Ejemplares: " + NumEjemplares);
 
-            Console.WriteLine("Pulse una tecla para continuar...");
-            Console.ReadKey();
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         private void leerActores()

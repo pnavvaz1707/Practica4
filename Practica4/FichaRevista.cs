@@ -22,7 +22,15 @@ namespace Practica4
 
         public override void imprimir()
         {
-            throw new NotImplementedException();
+            Console.ForegroundColor = ConsoleColor.Yellow;
+
+            Console.WriteLine("Referencia........: " + Referencia);
+            Console.WriteLine("Título............: " + Titulo);
+            Console.WriteLine("Ejemplares........: " + NumEjemplares);
+            Console.WriteLine("Número de revista.: " + NumRevista);
+            Console.WriteLine("Año de publicación: " + fechaPublicacion);
+
+            Console.ForegroundColor = ConsoleColor.White;
         }
     }
 }

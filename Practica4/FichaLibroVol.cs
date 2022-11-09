@@ -14,6 +14,16 @@ namespace Practica4
         public FichaLibroVol(string referencia, string titulo, int numEjemplares, string autor, string editorial, int volumen) : base(referencia, titulo, numEjemplares, autor, editorial)
         {
             this.volumen = volumen;
-        }   
+        }
+
+        public override void imprimir()
+        {
+            base.imprimir();
+            Console.ForegroundColor = ConsoleColor.Magenta;
+
+            Console.WriteLine("Volumen...: " + Volumen);
+
+            Console.ForegroundColor = ConsoleColor.White;
+        }
     }
 }

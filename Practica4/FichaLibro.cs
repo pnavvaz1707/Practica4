@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +23,15 @@ namespace Practica4
 
         public override void imprimir()
         {
+            Console.ForegroundColor = ConsoleColor.Magenta;
 
+            Console.WriteLine("Referencia: " + Referencia);
+            Console.WriteLine("Título....: " + Titulo);
+            Console.WriteLine("Ejemplares: " + NumEjemplares);
+            Console.WriteLine("Autor.....: " + Autor);
+            Console.WriteLine("Editorial.: " + Editorial);
+
+            Console.ForegroundColor = ConsoleColor.White;
         }
     }
 }

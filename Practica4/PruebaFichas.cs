@@ -39,6 +39,8 @@ namespace Practica4
                         Console.WriteLine("Los datos proporcionados son: ");
 
                         ficha.imprimir();
+
+                        pulsarParaContinuar();
                         break;
 
                     case 2:
@@ -48,6 +50,8 @@ namespace Practica4
                         Console.WriteLine("Los datos proporcionados son: ");
 
                         ficha.imprimir();
+
+                        pulsarParaContinuar();
                         break;
 
                     case 3:
@@ -58,6 +62,8 @@ namespace Practica4
                         Console.WriteLine("Los datos proporcionados son: ");
 
                         ficha.imprimir();
+
+                        pulsarParaContinuar();
                         break;
 
                     case 4:
@@ -67,13 +73,17 @@ namespace Practica4
                         Console.WriteLine("Los datos proporcionados son: ");
 
                         ficha.imprimir();
+
+                        pulsarParaContinuar();
                         break;
 
                     case 5:
                         for (int i = 0; i < fichas.Count; i++)
                         {
                             ((Ficha)fichas[i]).imprimir();
+                            Console.WriteLine("//////////////////////////////////////////////////////");
                         }
+                        pulsarParaContinuar();
                         break;
                 }
             } while (opcion != 6);
@@ -129,7 +139,7 @@ namespace Practica4
             titulo = Auxiliar.leerCadena("Introduce el título del DVD: ");
             director = Auxiliar.leerCadena("Introduce el director del DVD: ");
             fechaProduccion = Convert.ToString(Auxiliar.solicitarEnteroEnUnRango(DateTime.Now.Year - 100, DateTime.Now.Year, "Introduce la fecha de producción del DVD: "));
-            numProtagonistas = Auxiliar.solicitarEnteroEnUnRango(0, 20, "Nº de actores: ");
+            numProtagonistas = Auxiliar.solicitarEnteroEnUnRango(1, 20, "Nº de actores: ");
             ArrayList protagonistas = crearProtagonistas(numProtagonistas);
 
             return new FichaDVD(referencia, titulo, numEjemplares, director, fechaProduccion, protagonistas);
@@ -169,6 +179,12 @@ namespace Practica4
         {
             Console.Clear();
             Colores.imprimirAzul("Has seleccionado " + MENU_OPCIONES[respuesta - 1]);
+        }
+
+        private static void pulsarParaContinuar()
+        {
+            Console.WriteLine("\nPulse una tecla para continuar...");
+            Console.ReadKey();
         }
     }
 }
