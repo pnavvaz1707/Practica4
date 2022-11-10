@@ -28,13 +28,15 @@ namespace Practica4
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
 
-            Console.WriteLine("Referencia: " + Referencia);
-            Console.WriteLine("Título....: " + Titulo);
-            Console.WriteLine("Director..: " + Director);
-            Console.WriteLine("Año.......: " + fechaProduccion);
-            Console.WriteLine("Actores...: ");
+            Console.WriteLine("------------ FICHA DVD ------------");
+
+            Console.WriteLine("\tReferencia: " + Referencia);
+            Console.WriteLine("\tTítulo....: " + Titulo);
+            Console.WriteLine("\tDirector..: " + Director);
+            Console.WriteLine("\tAño.......: " + fechaProduccion);
+            Console.WriteLine("\tActores...: ");
             leerActores();
-            Console.WriteLine("Ejemplares: " + NumEjemplares);
+            Console.WriteLine("\tEjemplares: " + NumEjemplares);
 
             Console.ForegroundColor = ConsoleColor.White;
         }
@@ -43,7 +45,7 @@ namespace Practica4
         {
             for (int i = 0; i < protagonistas.Count; i++)
             {
-                Console.WriteLine("\t- " + protagonistas[i]);
+                Console.WriteLine("\t\t- " + protagonistas[i]);
             }
         }
     }

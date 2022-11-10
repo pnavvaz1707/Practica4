@@ -69,5 +69,34 @@ namespace Practica4
             }
             return num;
         }
+        public static bool seguirBucle(string msg)
+        {
+            bool siguePreguntando;
+            bool usuarioSigue = false;
+            do
+            {
+                Console.WriteLine(msg);
+                string respuesta = Console.ReadLine();
+                if (respuesta.ToLower().Equals("si"))
+                {
+                    usuarioSigue = true;
+                    siguePreguntando = false;
+                    Console.Clear();
+                }
+                else if (respuesta.ToLower().Equals("no"))
+                {
+                    usuarioSigue = false;
+                    siguePreguntando = false;
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Debe introducir la palabra 'si' o 'no'");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    siguePreguntando = true;
+                }
+            } while (siguePreguntando);
+            return usuarioSigue;
+        }
     }
 }

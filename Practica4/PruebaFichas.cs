@@ -2,8 +2,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+
+/*
+* PRÁCTICA.............: Práctica 4
+* NOMBRE y APELLIDOS...: Pablo Navarro Vázquez
+* CURSO y GRUPO........: 2º Desarrollo de Interfaces
+* TÍTULO de la PRÁCTICA: Uso del IDE V.Studio
+* FECHA de ENTREGA.....: 10 de Noviembre de 2022
+*/
 
 namespace Practica4
 {
@@ -36,7 +45,7 @@ namespace Practica4
                         ficha = creaFichaLibro();
                         fichas.Add(ficha);
 
-                        Console.WriteLine("Los datos proporcionados son: ");
+                        Console.Clear();
 
                         ficha.imprimir();
 
@@ -47,7 +56,7 @@ namespace Practica4
                         ficha = creaFichaLibroVol();
                         fichas.Add(ficha);
 
-                        Console.WriteLine("Los datos proporcionados son: ");
+                        Console.Clear();
 
                         ficha.imprimir();
 
@@ -59,7 +68,7 @@ namespace Practica4
 
                         fichas.Add(ficha);
 
-                        Console.WriteLine("Los datos proporcionados son: ");
+                        Console.Clear();
 
                         ficha.imprimir();
 
@@ -70,7 +79,7 @@ namespace Practica4
                         ficha = creaFichaDVD();
                         fichas.Add(ficha);
 
-                        Console.WriteLine("Los datos proporcionados son: ");
+                        Console.Clear();
 
                         ficha.imprimir();
 
@@ -78,10 +87,20 @@ namespace Practica4
                         break;
 
                     case 5:
-                        for (int i = 0; i < fichas.Count; i++)
+                        int contador = 1;
+                        int i = 0;
+                        bool sigue = true;
+                        while (i < fichas.Count && sigue)
                         {
                             ((Ficha)fichas[i]).imprimir();
-                            Console.WriteLine("//////////////////////////////////////////////////////");
+                            Console.WriteLine();
+                            i++;
+                            if (contador == 2 && i < fichas.Count)
+                            {
+                                sigue = Auxiliar.seguirBucle("¿Desea ver otras dos fichas más?");
+                                contador = 0;
+                            }
+                            contador++;
                         }
                         pulsarParaContinuar();
                         break;

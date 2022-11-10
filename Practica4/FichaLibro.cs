@@ -25,11 +25,13 @@ namespace Practica4
         {
             Console.ForegroundColor = ConsoleColor.Magenta;
 
-            Console.WriteLine("Referencia: " + Referencia);
-            Console.WriteLine("Título....: " + Titulo);
-            Console.WriteLine("Ejemplares: " + NumEjemplares);
-            Console.WriteLine("Autor.....: " + Autor);
-            Console.WriteLine("Editorial.: " + Editorial);
+            Console.WriteLine("------------ FICHA LIBRO ------------");
+
+            Console.WriteLine("\tReferencia: " + Referencia);
+            Console.WriteLine("\tTítulo....: " + Titulo);
+            Console.WriteLine("\tEjemplares: " + NumEjemplares);
+            Console.WriteLine("\tAutor.....: " + Autor);
+            Console.WriteLine("\tEditorial.: " + Editorial);
 
             Console.ForegroundColor = ConsoleColor.White;
         }

@@ -18,10 +18,16 @@ namespace Practica4
 
         public override void imprimir()
         {
-            base.imprimir();
             Console.ForegroundColor = ConsoleColor.Magenta;
 
-            Console.WriteLine("Volumen...: " + Volumen);
+            Console.WriteLine("------------ FICHA LIBRO CON VOLUMEN ------------");
+
+            Console.WriteLine("\tReferencia: " + Referencia);
+            Console.WriteLine("\tTítulo....: " + Titulo);
+            Console.WriteLine("\tEjemplares: " + NumEjemplares);
+            Console.WriteLine("\tAutor.....: " + Autor);
+            Console.WriteLine("\tEditorial.: " + Editorial);
+            Console.WriteLine("\tVolumen...: " + Volumen);
 
             Console.ForegroundColor = ConsoleColor.White;
         }
